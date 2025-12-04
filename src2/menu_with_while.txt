@@ -1,0 +1,79 @@
+print(
+"""
+---------------
+Simple menu with while
+---------------
+"""
+)
+
+menu={ 1 : "Show Greeting",
+       2 : "Show current counter value",
+       3 : "Increment Counter",
+       0 : "Exit"}
+
+counter_value=0
+
+while True:
+    print(menu)
+    print()
+    try:
+        option=int(input("Set the number where do you want to go: "))
+        menu_op=menu[option]
+    except Exception as err:
+        option=-1
+        menu_op="yo"
+
+
+    if option==1 and menu_op!="yo":
+        print(f"You selected {menu_op}")
+        print("\fHello!")
+        continue
+    elif option==2 and menu_op!="yo":
+        print(f"You selected {menu_op}")
+        print(f"Counter: {counter_value}")
+
+        while True:
+            print("¿Exit?")
+            yes_no=(input("[yes/no]: ")).upper()
+
+            if yes_no=="YES":
+                print("BYE")
+            elif yes_no=="NO":
+                print("Cancelled")
+                continue
+            else:
+                print("Error: option not valid")
+                continue
+            break
+        continue
+        
+    elif option==3 and menu_op!="yo":
+        print(f"You selected {menu_op}")
+        counter_value +=1
+        print(f"Counter incremented by {counter_value}")
+        continue
+
+    elif option==0 and menu_op!="yo":
+
+        while True:
+            print("¿Are you sure do you want to exit?")
+            yes_no=(input("[yes/no]: ")).upper()
+
+            if yes_no=="YES":
+                print("BYE")
+            elif yes_no=="NO":
+                print("Cancelled")
+                break
+            else:
+                print("Error: option not valid")
+                continue
+            break
+
+        if yes_no=="YES":
+            break
+        else:
+            continue
+
+    else:
+        print("Error: Invalid option.")
+    continue
